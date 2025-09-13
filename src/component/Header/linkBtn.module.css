@@ -1,0 +1,9 @@
+.linkToBtn {
+  background-color : #ff0000eb;
+  color: #ffffff;
+  display: block;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  box-shadow: inset -4px -5px 5px -3px  #9f0000, inset 2px 2px 2px #ff6363;
+}

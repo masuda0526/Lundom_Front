@@ -1,0 +1,10 @@
+.EditBtn{
+  margin: 0 auto;
+  display: block;
+  background-color: #1a55bb;
+  color: #fff;
+  padding: 5px;
+  text-decoration: none;
+  width: 150px;
+  border-radius: 18px;
+}
