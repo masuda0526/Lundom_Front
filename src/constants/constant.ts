@@ -9,8 +9,8 @@
 // export const BASE_PREFIX = '/lundom/api'
 
 // 本番環境
-export const BASE_HOST = `http://m-pitti.click`;
-export const BASE_PORT = '80'
+export const BASE_HOST = `https://m-pitti.click`;
+export const BASE_PORT = '443'
 export const BASE_PREFIX = '/lundom/api'
 
 
