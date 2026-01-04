@@ -19,4 +19,4 @@ export const BASE_PREFIX = '/lundom/api'
 export const TOP_PAGE_URL = `/lundom/app`;
 
 // APIURL
-export const API_URL = `${BASE_HOST}:${BASE_PORT}${BASE_PREFIX}`
+export const API_URL = `https://0yx55fbk84.execute-api.ap-northeast-1.amazonaws.com/lundom`

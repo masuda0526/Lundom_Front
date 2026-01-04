@@ -5,10 +5,7 @@ import { Card, CardActions, CardContent, Link, Typography } from "@mui/material"
 import { useRouter } from "next/navigation";
 import DeleteBtn from "../DelBtn/DeleteBtn";
 
-interface RestaurantExt extends Restaurant{
-  setList : (rs:Restaurant[]) => void
-}
-const Item: React.FC<RestaurantExt> = (props) => {
+const Item: React.FC<Restaurant> = (props) => {
   const router = useRouter();
   const star = (): string => {
     let str = '';
@@ -32,7 +29,6 @@ const Item: React.FC<RestaurantExt> = (props) => {
         <DeleteBtn 
           id={props.id}
           name = {props.name}
-          setRests={props.setList}
         ></DeleteBtn>
         <Link onClick={() => handleClick()}>
           編集する

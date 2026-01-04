@@ -40,7 +40,7 @@ export default function RoulettePage() {
   useEffect(() => {
     axios.get(`${API_URL}/roulette`)
     .then(res => {
-      setRestaurant(res.data);
+      setRestaurant(res.data.data.roulette);
     })
   }, [])
 

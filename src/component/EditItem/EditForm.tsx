@@ -10,26 +10,26 @@ import axios from "axios";
 import { API_URL } from "@/constants/constant";
 import Link from "next/link";
 import styles from './button.module.css'
+import { restaurantStore } from "@/store/restraurantStore";
 
 interface Props{
   isEdit:boolean,
   registFunc:() => void,
-
 }
 
 export const EditForm: React.FC<Props> = (props) => {
   const router = useRouter();
   const params = useParams<{ id: string }>();
+  const setRests = restaurantStore(s => s.setRestaurants);
   
   // 飲食店を状態管理
-  const [rest, setRestaurant] = useState<Restaurant>(defaultRestaurant());
+  const rests = restaurantStore(s => s.restaurants);
+  const r = rests.find(rest => rest.id === params.id)??defaultRestaurant();
+  const [rest, setRestaurant] = useState<Restaurant>(r);
 
   useEffect(() => {
     if(props.isEdit){
-      axios.get(`${API_URL}/restaurant/${params.id}`)
-      .then(res => {
-        setRestaurant(res.data);
-      })
+      setRestaurant(rest);
     }else{
       setRestaurant(defaultRestaurant());
     }
@@ -69,11 +69,19 @@ export const EditForm: React.FC<Props> = (props) => {
   }
   // create
   const create = () => {
-    axios.post(`${API_URL}/create`, rest);
+    axios.post(`${API_URL}/add`, rest)
+    .then(res => {
+      // console.log(res.data);
+      setRests(res.data.data.rests);
+    });
   }
   // update
   const update = () => {
     axios.post(`${API_URL}/update`, rest)
+    .then(res => {
+      // console.log(res.data);
+      setRests(res.data.data.rests);
+    })
   }
   return (
     <Box sx={{ display: 'grid', gap: 2 , marginTop:'70px'}}>

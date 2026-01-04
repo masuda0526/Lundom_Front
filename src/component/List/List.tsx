@@ -5,22 +5,24 @@ import Item from "./Item";
 import { Box } from "@mui/material";
 import axios from "axios";
 import { API_URL } from "@/constants/constant";
+import { restaurantStore } from "@/store/restraurantStore";
 
 const List:React.FC = () => {
-  const [items , setItems] = useState<Restaurant[]>([]);
+  const rests = restaurantStore((s) => s.restaurants);
+  const setRests = restaurantStore((s) => s.setRestaurants);
   useEffect(() => {
     axios.get(`${API_URL}/restaurants`,)
     .then(res => {
-      setItems(res.data);
+      // console.log(res.data)
+      setRests(res.data.data.restaurants);
     })
-    // setItems(testRestaurantData);
   },[]);
 
 
   return (
     <Box sx={{display:'grid', gap:2, }}>
-      {items.map(item => (
-        <Item key={item.id} {...item} setList={setItems}></Item>
+      {rests.map(rest => (
+        <Item key={rest.id} {...rest}></Item>
       ))}
     </Box>
   )

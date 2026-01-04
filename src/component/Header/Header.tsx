@@ -26,7 +26,7 @@ const Header: React.FC = () => {
       <AppBar position="fixed" sx={{ backgroundColor: '#f64728eb' }}>
         <Toolbar sx={{display:'flex', justifyContent:'space-between'}}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Image src="topIcon.png" alt="#" width={50} height={50} />
+            <Image src="/topIcon.png" alt="#" width={50} height={50} />
             <Typography
               variant={'h6'}
               noWrap
